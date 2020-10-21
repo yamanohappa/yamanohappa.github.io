@@ -1,0 +1,183 @@
+html {
+  font-size: 62.5%;
+  color: #000000;
+}
+@media screen and(max-width: 560px) {
+  html {
+    font-size: 2.66vw; /* 10/375*100 */
+  }
+}
+body {
+  font-size: 1.4rem; /* basic size 14px */
+
+  position: relative; /*子が絶対での位置指定を行う場合、親はstatic以外である必要あり*/
+  min-height: 100vh;
+  /*  ;
+*/
+}
+/***********************************************************************/
+/*ヘッダー*/
+/***********************************************************************/
+#header {
+  z-index: 1; /*手前に*/
+
+  width: 100%;
+  padding: 0;
+
+  position: fixed;
+
+  height: 100px;
+  background-color: #eeeeee;
+}
+#header .headertop {
+  padding: 0;
+  margin: 15px;
+  text-align: center; /*中央よせ*/
+}
+.nav {
+  text-align: center; /*中央よせ*/
+}
+.nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; /*リストの●なし*/
+}
+.nav li {
+  display: inline-block; /*横並びのブロック要素*/
+  margin: 0;
+  padding: 4px;
+  text-align: center; /*中央よせ*/
+  width: 30%;
+  height: 25px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  position: relative;
+}
+/*ナビゲーションバーのリンクの色を変えない＋下線なし*/
+.nav a:link,
+a:visited,
+a:active {
+  color: #000000;
+  text-decoration: none;
+}
+/* hoverはマウスが上を通過したとき*/
+.nav li:hover {
+  opacity: 0.7; /*半透明*/
+}
+/*メニュー仕切り*/
+.nav li::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 25px;
+  right: 0;
+  top: 0px;
+  background: #000000;
+}
+.nav li:last-child::after {
+  content: none;
+}
+/***********************************************************************/
+/*メインコンテンツ*/
+/***********************************************************************/
+#main {
+  padding-top: 100px; /*ヘッダの分あける*/
+  padding-bottom: 100px;
+  background-color: #777777;
+  min-height: calc(100vh - 200px);
+}
+
+/*コンテンツを記述する板*/
+.article {
+  max-width: 720px;
+  margin: 20px auto; /*ブロック要素を中央よせ*/
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+@media (max-width: 560px) {
+  .article {
+    margin: 0px 0px;
+    max-width: 720px;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+}
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.about {
+}
+
+/*リフレックスボックス　https://chot.design/responsive-web-design-coding/ebf4d2aba6ad/*/
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-right: 20px;
+  padding-bottom: 50px;
+  padding-left: 20px;
+  max-width: 1280px;
+}
+.box-item {
+  padding-right: 5px;
+  padding-left: 5px;
+  width: 300px;
+}
+.box-item-thum {
+  width: 100%;
+}
+.box-item-thum img {
+  width: 100%;
+}
+.box-item-title {
+  padding-top: 10px;
+  padding-bottom: 30px;
+  font-size: 16px;
+}
+/*リフレックスボックス　終わり*/
+
+video {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+}
+
+.youtube {
+  width: 100%;
+  height: 0;
+  position: relative;
+  padding-bottom: 56.25%;
+}
+.youtube iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+/***********************************************************************/
+/*フッター*/
+/***********************************************************************/
+#footer {
+  color: #777777;
+  background-color: #eeeeee;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  position: absolute; /*←絶対位置（親基準）*/
+  bottom: 0; /*下に固定*/
+}
+
+/*以下メモ*/
+/* .はクラス #はid */
+/* vw vh ビューポート基準の単位*/
+/* margin auto で中央よせ*/
